@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messenger</title>
+    <link href='./assets/logo.png' type='image/png' rel='icon'>   
+    <!-- CSS Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <!-- CSS -->
+    <link href='./css/style.css' type='text/css' rel='stylesheet'>
+    <!-- Icons - fontawesome -->
+     <script src="https://kit.fontawesome.com/d2883e7411.js" crossorigin="anonymous"></script>
+    <!--Font-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    </head>
+<body>
+
+
+<div class='container-sm d-flex flex-column align-items-center justify-content-center'>
+
+     <!-- Para definir o usuário -->
+
+     <div class='modal d-flex flex-column' id='myModal'>
+
+        <div  class='bgmodal d-flex align-items-center justify-content-center' >
+            <div class='modal-dialog '>
+                <div class='modal-content' style='border:none; background-color: #ffffff00;'>
+                
+                        <form name='user_form_name' id='user_form' class='p-3 modal-body d-flex flex-column'>
+                        <img src='./assets/avatar.png' alt='avatar msn' type='image/png' id='avatar' class='align-self-center mb-4'>
+                        <p class='fw-bolder text-dark fs-5'>Escolha um Nick para começar:</p>
+                        <input name='user' id='user_message' type='text' class='form-control mb-3 align-self-center' required >
+                        <button class='btn btn-primary w-50 align-self-center btn-lg' type='submit'>Entrar</button>
+                        </form>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Tela de Mensagens -->
+    <div id='messages' class='p-2 mt-2 bg-white d-flex'>
+
+    </div>
+
+    <!-- Enviar Mensagens -->
+    <div class='mt-2 p-2 send'>
+            <form name='message_form_name' id='message_form'>
+            <input name='msg' id='message' type='text' class='mt-3' >
+            <button type='submit' class='btn btn-lg m-2' style='background-color: #D1E9F0; border: 2px solid #ced1d39a;'>Enviar</button>
+            </form>
+    </div>
+
+
+</div>
+    
+    
+<!--Bootstrap-->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+<!-- SOCKET IO -->
+<script src='./socket.io/socket.io.js'></script>
+<!-- My Script -->
+<script src='./script/chat.js'></script>
+</body>
+</html>
+
+
+
+
