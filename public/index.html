@@ -18,7 +18,46 @@
     </head>
 <body>
 
+<!--Navbar-->
+ <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="./assets/logo.png" alt="logo Messenger" width="30" height="24" class="d-inline-block align-text-top">
+            Chat
+          </a>
+          <div class='text-warning fw-bolder fs-4' id='roomName'>ROOM 01</div>
+          <button class="btn btn-dark me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"><i class="fas fa-user-friends"></i> Users</button>
+        </div>
+</nav>
 
+
+<!--Online-->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight">
+  <div class="offcanvas-header d-flex justify-content-evenly align-items-center">
+   
+    <h5 id="offcanvasRightLabel" >Users</h5>
+ 
+     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body bg-light text-dark">
+                <!--  Users Online -->   
+                
+                    <div class='d-flex flex-column justify-content-center align-items-center'>
+                
+                         <ul id='usersOn'>
+                             <li><i class="fas fa-user text-success"></i> user numero 1</li>
+                             <li><i class="fas fa-user text-success"></i> user numero 2</li>
+                             <li><i class="fas fa-user text-success"></i> user numero 3</li>
+                             <li><i class="fas fa-user text-success"></i> user numero 4</li>
+                         
+                         </ul>
+                     </div>
+      
+  </div>
+</div>
+
+
+<!--Content-->
 <div class='container-sm d-flex flex-column align-items-center justify-content-center'>
 
      <!-- Para definir o usuário -->
@@ -29,11 +68,58 @@
             <div class='modal-dialog '>
                 <div class='modal-content' style='border:none; background-color: #ffffff00;'>
                 
-                        <form name='user_form_name' id='user_form' class='p-3 modal-body d-flex flex-column'>
+                        <form name='user_form_name' id='user_form' class='p-3 modal-body d-flex flex-column align-items-center'>
                         <img src='./assets/avatar.png' alt='avatar msn' type='image/png' id='avatar' class='align-self-center mb-4'>
-                        <p class='fw-bolder text-dark fs-5'>Escolha um Nick para começar:</p>
-                        <input name='user' id='user_message' type='text' class='form-control mb-3 align-self-center' required >
-                        <button class='btn btn-primary w-50 align-self-center btn-lg' type='submit'>Entrar</button>
+                        <p class='fw-bolder text-dark fs-6'>Escolha um Nick para começar:</p>
+                      
+                        <input name='user' id='user_message' type='text' class='form-control mb-2 align-self-center text-center' placeholder='Digite um Nick' required >
+                       
+                        <!--Colors for nick-->
+
+                        <select class="form-select mb-2 text-center" required id='color'>
+                            <option selected>Selecione uma cor</option>
+                            <option value="black">Preto</option>
+                            <option value="gray">Cinza</option>
+                            <option value="darkgray">Grafite</option>
+                            <option value="red">Vermelho</option>
+                            <option value='tomato'>Tomato</option>
+                            <option value="darkred">Vinho</option>
+                            <option value="purple">Roxo</option>
+                            <option value="pink">Rosa</option>
+                            <option value="darkmagenta">Rosa Escuro</option>
+                            <option value="magenta">magenta</option>
+                            <option value="violet">Violeta</option>
+                            <option value="lightblue">Azul Claro</option>
+                            <option value="blue">Azul</option>
+                            <option value="darkgreen">Verde Escuro</option>
+                            <option value="green">Verde</option>
+                            <option value="lightgreen">verde Claro</option>
+                            <option value="greenyellow">Verde Limão</option>
+                            <option value='brown'>Marrom</option>
+                            <option value='goldenrod'>Dourado</option>
+                            <option value='yellow'>Amarelo</option>
+                            <option value='Orange'>Laranja</option>
+                            
+                         </select>
+
+
+                         <!--Status-->
+
+                         <select class="form-select mb-2 text-center" required id='status'>
+                            <option selected>Selecione o seu status</option>
+                            <option value='<i class="fas fa-user text-success"></i>'>Disponível</option>
+                            <option value='<i class="fas fa-minus-circle text-warning"></i>'>Ocupado</option>
+                            <option value='<i class="fas fa-user text-danger"></i>'>Ausente</option>
+                        </select>
+
+                         <!-- Chat Room-->
+                         <select class="form-select mb-2 text-center" required id='chat_room'>
+                            <option selected>Selecione a sala</option>
+                            <option value="Sala 01">Sala 01</option>
+                        </select>
+
+
+                        <button class='btn btn-primary w-50 align-self-center btn-lg mt-2' type='submit'>Entrar</button>
                         </form>
                 
                 </div>
@@ -41,24 +127,39 @@
         </div>
     </div>
 
+    <!--content-->
+    <div class='d-flex justify-content-center align-items-center w-100'>
+        
+            <!-- Section Write and Read Messages -->
+            <section id='Messages_send_end_read' class='d-flex flex-column justify-content-center align-items-center w-100'>
+                    <!-- Tela de Mensagens -->
+                    <div id='messages' class='p-2 mt-1 bg-white d-flex'>
 
-    <!-- Tela de Mensagens -->
-    <div id='messages' class='p-2 mt-2 bg-white d-flex'>
+                    </div>
 
+                    <!-- Enviar Mensagens -->
+                    <div class='mt-1 p-2 send bg-white' >
+                            <form name='message_form_name' id='message_form' class='d-grid gap-1 d-md-block'>
+                            <div class='row'>
+                                <div class='col-9'>
+                                    <input name='msg' id='message' type='text' class='mt-1 mb-1 ms-3' required>
+                                </div>
+                                <div class='col-3'>
+                                    <button type='submit' class='btn border-dark w-100 mt-3 mb-1' style='background-color: #F8F9FA'>Enviar</button><br>
+                                    <a href='/' class='btn border-dark w-100' style='background-color: #F8F9FA'> Sair </a>
+                                </div>
+                            </div>
+
+                        </div>
+                            </form>        
+        
+            </section>  
+            
+            
+        
     </div>
 
-    <!-- Enviar Mensagens -->
-    <div class='mt-2 p-2 send'>
-            <form name='message_form_name' id='message_form'>
-            <input name='msg' id='message' type='text' class='mt-3' >
-            <button type='submit' class='btn btn-lg m-2' style='background-color: #D1E9F0; border: 2px solid #ced1d39a;'>Enviar</button>
-            </form>
-    </div>
-
-
-</div>
-    
-    
+</div>   
 <!--Bootstrap-->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>

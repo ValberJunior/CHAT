@@ -21,7 +21,7 @@ function updateMessagesOnScreen(messages){
 
     messages.forEach(message=>
         {
-            list_messages += `<li><i class="fas fa-user text-success"></i> <strong>${message.user}: </strong> ${message.msg}</li>`
+            list_messages += `<li>${message.user} - ${message.msg}</li>`
         })
         list_messages += '</ul>';
 
@@ -40,13 +40,25 @@ document.addEventListener('DOMContentLoaded',()=>{
         userForm.addEventListener('submit',(e)=>{
             
             e.preventDefault();
-        
-            user = document.forms['user_form_name']['user'].value;
+
+            let color = document.querySelector('#color').value;     //Choose Color
+            let status = document.querySelector('#status').value;    //Choose status
+            let chat_room = document.querySelector('#chat_room').value;    //Choose Room
+            let roomName = document.querySelector('#roomName');
+
+            roomName.innerText = chat_room;
+
+            let text = document.forms['user_form_name']['user'].value;
     
+
+            user =`<strong style="color:${color}">${status} ${text}</strong>`;            
+          
             document.forms['message_form_name']['msg'].value = '';
 
             userForm.parentNode.removeChild(userForm);
             chooseUser.parentNode.removeChild(chooseUser);
+
+            console.log(user);
             
 
         })
@@ -67,11 +79,10 @@ document.addEventListener('DOMContentLoaded',()=>{
        
             
         
-       
-
         // Para enviar mensagens 
+        
         const message = document.forms['message_form_name']['msg'].value;
-
+        
         document.forms['message_form_name']['msg'].value = '';
         
         //enviar a mensagem para o backend
