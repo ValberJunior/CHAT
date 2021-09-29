@@ -38,7 +38,8 @@ ul{
     list-style-type: none;
 }
 li{
-    margin-bottom: 15px;
+    margin-bottom: 10x;
+    margin-top: 10px;
 }
 
 .bgmodal{
