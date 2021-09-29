@@ -20,13 +20,13 @@
 
 <!--Navbar-->
  <nav class="navbar navbar-info bg-info">
-        <div class="container-fluid">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
           <span class="navbar-brand text-dark fw-bolder">
             <img src="./assets/logo.png" alt="logo Messenger" width="30" height="24" class="d-inline-block align-text-top">
             Messenger
           </span>
           <div class='text-light fw-bolder fs-4' id='roomName'>ROOM 01</div>
-          <button class="btn btn-dark me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"><i class="fas fa-user-friends"></i> Users</button>
+          <button class="btn btn-dark me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"><i class="fas fa-user-friends"></i></button>
         </div>
 </nav>
 
@@ -88,7 +88,7 @@
                             <option value="darkblue">Azul Marinho</option>
                             <option value="darkgreen">Verde Escuro</option>
                             <option value="green">Verde</option>
-                            <option value="lightgreen">verde Claro</option>
+                            <option value="lightgreen">Verde Claro</option>
                             <option value="greenyellow">Verde Limão</option>
                             <option value='brown'>Marrom</option>
                             <option value='goldenrod'>Dourado</option>
@@ -132,19 +132,13 @@
 
                     <!-- Enviar Mensagens -->
                     <div class='mt-1 p-2 send bg-light' >
-                            <form name='message_form_name' id='message_form' class='d-grid gap-1 d-md-block'>
-                            <div class='row'>
-                                <div class='col-9'>
+                            <form name='message_form_name' id='message_form' class='d-md-block'>
+                                <div class='d-flex justify-content-between align-items-center'>
                                     <input name='msg' id='message' type='text' class='mt-1 mb-1 ms-3' required>
+                                    <button type='submit' class='btn btn-dark btn-lg  m-2'><i class="fas fa-paper-plane"></i></button>
                                 </div>
-                                <div class='col-3'>
-                                    <button type='submit' class='btn btn-dark btn-lg w-100 mt-1 mb-1'>Enviar</button><br>
-                                    <a href='/' class='btn btn-dark btn-lg w-100'> Sair </a>
-                                </div>
-                            </div>
-
-                        </div>
-                            </form>        
+                            </form>    
+                     </div>          
         
             </section>  
             

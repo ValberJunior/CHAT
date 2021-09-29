@@ -3,6 +3,10 @@ const app = express();
 const PORT = 3000;
 const socketIo = require('socket.io');
 const path = require('path');
+const cors = require('cors');
+const whiteList = {origin: 'http://localhost:3000'};
+
+
 
 //Rota Estática 
 app.use('/', express.static(path.join(__dirname, 'public')));
@@ -10,6 +14,8 @@ app.use('/', express.static(path.join(__dirname, 'public')));
 const server = app.listen(PORT,()=>{
     console.log(`Server Running on Port ${PORT}`)
 })
+
+app.use(cors(whiteList));
 
 //array de Mensagem
 const messages = [];
