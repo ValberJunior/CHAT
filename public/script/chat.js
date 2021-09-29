@@ -12,6 +12,13 @@ updateMessagesOnScreen(messages);
 
 })
 
+//Recebendo o usuário do Backend
+socket.on('update_users', (users)=>{
+   
+    updateUsersOnScreen(users);
+    
+    })
+
 function updateMessagesOnScreen(messages){
     const div_messages = document.querySelector('#messages');
 
@@ -30,6 +37,26 @@ function updateMessagesOnScreen(messages){
         div_messages.innerHTML = list_messages;
 }
 
+function updateUsersOnScreen(users){
+    const userBar = document.querySelector('#usersOn');
+
+    let list_users = '<ul>'; // Abrir minha lista não ordenada;
+
+    //Para cada mensagem que eu tiver, irei adicionar a minha lista.
+
+    users.forEach(user=>
+        {
+            list_users += `<li>${user.status}</li>`;   
+            return list_users;
+        })
+        list_users += '</ul>';
+
+
+        //colocar minhas mensagens na div
+
+        userBar.innerHTML = list_users;
+}
+
 document.addEventListener('DOMContentLoaded',()=>{
 
         const chooseUser = document.querySelector('#myModal');
@@ -46,20 +73,29 @@ document.addEventListener('DOMContentLoaded',()=>{
             let chat_room = document.querySelector('#chat_room').value;    //Choose Room
             let roomName = document.querySelector('#roomName');
 
-            roomName.innerText = chat_room;
+            roomName.innerText = chat_room;   // Room Name 
 
+                
             let text = document.forms['user_form_name']['user'].value;
     
 
-            user =`<strong style="color:${color}">${status} ${text}</strong>`;            
+            user =`<strong style="color:${color}">${status} ${text}</strong>`;      
+            
+              
+            let userSts = user;
+                
           
             document.forms['message_form_name']['msg'].value = '';
 
+            //Enviar o usuário logado para o backend:
+            
+            socket.emit('new_user_status',{status: userSts});
+        
+          
+
             userForm.parentNode.removeChild(userForm);
             chooseUser.parentNode.removeChild(chooseUser);
-
-            console.log(user);
-            
+           
 
         })
 
@@ -87,10 +123,15 @@ document.addEventListener('DOMContentLoaded',()=>{
         
         //enviar a mensagem para o backend
         socket.emit('new_message',{user:user , msg: message});
-        console.log(message);
-
+    
     })
 
 })
 
 
+//sound new message
+const audio = document.querySelector('#audio');
+
+socket.on('hello',(data)=>{
+    console.log(data.msg)
+})

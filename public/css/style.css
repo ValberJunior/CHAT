@@ -2,6 +2,11 @@ body{
     font-family: 'Poppins', sans-serif;
     background-color: #EAF2F5;
     width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-content: center;
 }
 #messages{
     width: 80%;
