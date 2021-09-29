@@ -13,36 +13,36 @@
     <!-- Icons - fontawesome -->
      <script src="https://kit.fontawesome.com/d2883e7411.js" crossorigin="anonymous"></script>
     <!--Font-->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
     </head>
 <body>
 
 <!--Navbar-->
- <nav class="navbar navbar-dark bg-dark">
+ <nav class="navbar navbar-info bg-info">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">
+          <span class="navbar-brand text-dark fw-bolder">
             <img src="./assets/logo.png" alt="logo Messenger" width="30" height="24" class="d-inline-block align-text-top">
-            Chat
-          </a>
-          <div class='text-warning fw-bolder fs-4' id='roomName'>ROOM 01</div>
+            Messenger
+          </span>
+          <div class='text-light fw-bolder fs-4' id='roomName'>ROOM 01</div>
           <button class="btn btn-dark me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"><i class="fas fa-user-friends"></i> Users</button>
         </div>
 </nav>
 
 
-<!--Online-->
-<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight">
-  <div class="offcanvas-header d-flex bg-light">
+<!--Online-->                                                                       <!--MEXER-->
+<div class="offcanvas offcanvas-end" style='width: 300px;' tabindex="-1" id="offcanvasRight">
+  <div class="card-header d-flex justify-content-between bg-dark text-light">
    
-    <h5 id="offcanvasRightLabel" >Users</h5>
+    <h5 id="card-title">Users</h5>
  
-     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+     <button type="button" class="btn-dark text-light" data-bs-dismiss="offcanvas" style='border:none; outline: none;'><i class="fas fa-times"></i></button>
   </div>
-  <div class="offcanvas-body bg-light text-dark">
+  <div class="card-body bg-light text-dark overflow-auto">
                 <!--  Users Online -->   
                 
-                    <div class='d-flex flex-column justify-content-center align-items-center' id='usersOn'>
+                    <div class='d-flex flex-column justify-content-center align-items-start ms-2 pt-2 card' id='usersOn'>
                 
 
                      </div>
@@ -52,20 +52,20 @@
 
 
 <!--Content-->
-<div class='container-sm align-items-center justify-content-center'>
+<div class='container-md align-items-center justify-content-center'>
 
      <!-- Para definir o usuário -->
 
      <div class='modal d-flex flex-column' id='myModal'>
 
         <div  class='bgmodal d-flex align-items-center justify-content-center' >
-            <div class='modal-dialog '>
-                <div class='modal-content' style='border:none; background-color: #ffffff00;'>
-                
+            
+            <div class='modal-dialog'>
+                        <div class='modal-content' style='border:none; background-color: #ffffff00;'>
+                        <h1 class='fw-bolder text-dark fs-4 text-center'><i class="fas fa-comment-dots"></i> Messenger Fake</h1>
                         <form name='user_form_name' id='user_form' class='p-3 modal-body d-flex flex-column align-items-center'>
                         <img src='./assets/avatar.png' alt='avatar msn' type='image/png' id='avatar' class='align-self-center mb-4'>
-                        <p class='fw-bolder text-dark fs-6'>Escolha um Nick para começar:</p>
-                      
+                                              
                         <input name='user' id='user_message' type='text' class='form-control mb-2 align-self-center text-center' placeholder='Digite um Nick' required >
                        
                         <!--Colors for nick-->
@@ -112,7 +112,7 @@
                         </select>
 
 
-                        <button class='btn btn-primary w-50 align-self-center btn-lg mt-2' type='submit'>Entrar</button>
+                        <button class='btn btn-dark w-100 align-self-center btn-lg mt-2' type='submit'>Entrar <i class="far fa-hand-point-right"></i></button>
                         </form>
                 
                 </div>
@@ -121,25 +121,25 @@
     </div>
 
     <!--content-->
-    <div class='d-flex justify-content-center align-items-center w-100'>
+    <div class='d-flex justify-content-center align-items-center align-self-center' style='width:100%; height:100%;'>
         
             <!-- Section Write and Read Messages -->
             <section id='Messages_send_end_read' class='d-flex flex-column justify-content-center align-items-center w-100'>
                     <!-- Tela de Mensagens -->
-                    <div id='messages' class='p-2 mt-1 bg-white d-flex'>
+                    <div id='messages' class='p-2 mt-1 mb-1 bg-light d-flex'>
 
                     </div>
 
                     <!-- Enviar Mensagens -->
-                    <div class='mt-1 p-2 send bg-white' >
+                    <div class='mt-1 p-2 send bg-light' >
                             <form name='message_form_name' id='message_form' class='d-grid gap-1 d-md-block'>
                             <div class='row'>
                                 <div class='col-9'>
                                     <input name='msg' id='message' type='text' class='mt-1 mb-1 ms-3' required>
                                 </div>
                                 <div class='col-3'>
-                                    <button type='submit' class='btn border-dark w-100 mt-3 mb-1' style='background-color: #F8F9FA'>Enviar</button><br>
-                                    <a href='/' class='btn border-dark w-100' style='background-color: #F8F9FA'> Sair </a>
+                                    <button type='submit' class='btn btn-dark btn-lg w-100 mt-1 mb-1'>Enviar</button><br>
+                                    <a href='/' class='btn btn-dark btn-lg w-100'> Sair </a>
                                 </div>
                             </div>
 

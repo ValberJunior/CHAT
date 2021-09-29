@@ -1,39 +1,36 @@
 body{
-    font-family: 'Poppins', sans-serif;
-    background-color: #EAF2F5;
+    font-family: 'Roboto', sans-serif;
     width: 100vw;
     height: 100vh;
-
+    background-color: aliceblue;
     display: flex;
     flex-direction: column;
     align-content: center;
 }
+
 #messages{
     width: 80%;
     height: 420px;
     overflow: auto;
     border: 2px solid #ced1d39a;
-    /* box-shadow: 0 0 1em #2121fd71; */
+     /* box-shadow: 0 0 1em #ced1d39a; */
 }
+
 
 .send{
     width: 80%;
     overflow: hidden;
     border: 2px solid #ced1d39a;
     text-align: center;
-    /* box-shadow: 0 0 1em #2121fd71; */
+    /* box-shadow: 0 0 1em #ced1d39a; */
 }
 
 #message{
     width:100%;
     height:100px;
     border:2px solid #ced1d39a;
-    outline:none; 
+    outline:none;
     padding-left: 10px;
-}
-
-.online{
-    border:2px solid red;
 }
 
 
@@ -47,7 +44,9 @@ li{
 .bgmodal{
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(#ffffff,#CFDBEF)
+    background-image: url('../assets/background2.jpg');
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 #avatar{

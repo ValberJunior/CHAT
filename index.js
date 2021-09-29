@@ -17,6 +17,9 @@ const messages = [];
 //array de users
 const users = [];
 
+//sound
+let sound= null;
+
 const io = socketIo(server);
 
 
@@ -25,7 +28,9 @@ io.on('connection',(socket)=>{
     console.log("New connection");
     //Enviar somente para novas conexões, as mensagens já geradas:
     socket.emit('update_messages', messages);
-    socket.broadcast.emit('hello',{msg: 'Chegou um novo usuário'})
+    socket.broadcast.emit('hello',{msg: 'Um novo usuário entrou na Sala'})
+    
+    
         
     //Quando tiver uma nova mensagem, ela será adicionada a um array e será mostrada para todos
     
@@ -34,6 +39,8 @@ io.on('connection',(socket)=>{
         messages.push(data);
         //Mandar a mensagem para todo mundo, inclusive para quem enviou
         io.emit('update_messages', messages);
+        sound = true;
+        socket.broadcast.emit('sound',sound)
     
     });
 

@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded',()=>{
             let chat_room = document.querySelector('#chat_room').value;    //Choose Room
             let roomName = document.querySelector('#roomName');
 
-            roomName.innerText = chat_room;   // Room Name 
+            roomName.innerHTML = `<i class="fas fa-comments text-dark me-2"></i> ${chat_room}`;   // Room Name 
 
                 
             let text = document.forms['user_form_name']['user'].value;
@@ -134,4 +134,10 @@ const audio = document.querySelector('#audio');
 
 socket.on('hello',(data)=>{
     console.log(data.msg)
+})
+
+socket.on('sound',(sound)=>{
+    if (sound){
+    audio.play();
+    }
 })
