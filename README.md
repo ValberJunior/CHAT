@@ -6,8 +6,7 @@ Chat simples utilizando SocketIO
 
 - implementar o som ✅
 - melhor o visual ✅
-- melhar o codigo
-- colocar para acessar pelo ip
+- melhar o codigo ✅
 - implementar salas
-- implementar mongodb
+
 
