@@ -1,7 +1,6 @@
-
-// const room = window.location.pathname.replace(/\//g,''); //Substituir as / por vazio;
-// console.log(room);
-const socket = io(`http://192.168.0.2:3000`);  // Conectar na sala
+const room = window.location.pathname.replace(/\//g,''); //Substituir as / por vazio;
+console.log(room);
+const socket = io(`http://localhost:3000/${room}`);  // Conectar na sala
 
 let user = null;
 

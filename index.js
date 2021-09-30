@@ -3,37 +3,33 @@ const app = express();
 const PORT = 3000;
 const socketIo = require('socket.io');
 const path = require('path');
-const cors = require('cors');
-const whiteList = {origin: 'http://localhost:3000'};
 
 
-
-//Rota Estática 
-app.use('/', express.static(path.join(__dirname, 'public')));
+//Salas
+app.use('/room1', express.static(path.join(__dirname, 'public')));
+app.use('/room2', express.static(path.join(__dirname, 'public')));
 
 const server = app.listen(PORT,()=>{
     console.log(`Server Running on Port ${PORT}`)
 })
 
-app.use(cors(whiteList));
 
 //array de Mensagem
-const messages = [];
+const messages = {room1:[], room2:[]};
 
 //array de users
-const users = [];
+const users = {room1:[], room2:[]};
 
 //sound
 let sound= null;
 
 const io = socketIo(server);
 
-
-io.on('connection',(socket)=>{
+const room1 = io.of('/room1').on('connection', (socket)=>{
 
     console.log("New connection");
     //Enviar somente para novas conexões, as mensagens já geradas:
-    socket.emit('update_messages', messages);
+    socket.emit('update_messages', messages.room1);
     socket.broadcast.emit('hello',{msg: 'Um novo usuário entrou na Sala'})
     
     
@@ -42,20 +38,51 @@ io.on('connection',(socket)=>{
     
     //A mensagem será recebida do front-end aqui:
     socket.on('new_message', (data)=>{
-        messages.push(data);
+        messages.room1.push(data);
         //Mandar a mensagem para todo mundo, inclusive para quem enviou
-        io.emit('update_messages', messages);
+        room1.emit('update_messages', messages.room1);
         sound = true;
-        socket.broadcast.emit('sound',sound)
+        room1.broadcast.emit('sound',sound)
     
     });
 
     //Quando um usuário entra, ele vai para a lista de usuários
     socket.on('new_user_status',(data)=>{
-        users.push(data);
-        io.emit('update_users', users)});
+        users.room1.push(data);
+        room1.emit('update_users', users.room1)});
  
 
+
+})
+
+
+
+const room2 = io.of('/room2').on('connection', (socket)=>{
+
+    console.log("New connection");
+    //Enviar somente para novas conexões, as mensagens já geradas:
+    socket.emit('update_messages', messages.room2);
+    socket.broadcast.emit('hello',{msg: 'Um novo usuário entrou na Sala'})
+    
+    
+        
+    //Quando tiver uma nova mensagem, ela será adicionada a um array e será mostrada para todos
+    
+    //A mensagem será recebida do front-end aqui:
+    socket.on('new_message', (data)=>{
+        messages.room2.push(data);
+        //Mandar a mensagem para todo mundo, inclusive para quem enviou
+        room2.emit('update_messages', messages.room2);
+        sound = true;
+        room2.broadcast.emit('sound',sound)
+    
+    });
+
+    //Quando um usuário entra, ele vai para a lista de usuários
+    socket.on('new_user_status',(data)=>{
+        users.room2.push(data);
+        room2.emit('update_users', users.room2)});
+ 
+
+
 });
-
-
