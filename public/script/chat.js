@@ -69,10 +69,10 @@ document.addEventListener('DOMContentLoaded',()=>{
 
             let color = document.querySelector('#color').value;     //Choose Color
             let status = document.querySelector('#status').value;    //Choose status
-            let chat_room = document.querySelector('#chat_room').value;    //Choose Room
+            let chat_room = document.querySelector('#chat_room').value;    //Choose Room   
             let roomName = document.querySelector('#roomName');
 
-            roomName.innerHTML = `<i class="fas fa-comments text-dark me-2"></i> ${chat_room}`;   // Room Name 
+            roomName.innerHTML = `<i class="fas fa-comments text-dark me-2"></i> Sala ${chat_room}`;   // Room Name        
 
                 
             let text = document.forms['user_form_name']['user'].value;
@@ -86,6 +86,7 @@ document.addEventListener('DOMContentLoaded',()=>{
           
             document.forms['message_form_name']['msg'].value = '';
 
+
             //Enviar o usuário logado para o backend:
             
             socket.emit('new_user_status',{status: userSts});
@@ -94,6 +95,8 @@ document.addEventListener('DOMContentLoaded',()=>{
 
             userForm.parentNode.removeChild(userForm);
             chooseUser.parentNode.removeChild(chooseUser);
+            
+
            
 
         })

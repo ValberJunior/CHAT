@@ -52,7 +52,7 @@
 
 
 <!--Content-->
-<div class='container-md align-items-center justify-content-center'>
+<div class='container-md align-items-center justify-content-center mb-5'>
 
      <!-- Para definir o usuário -->
 
@@ -64,55 +64,56 @@
                         <div class='modal-content' style='border:none; background-color: #ffffff00;'>
                         <h1 class='fw-bolder text-dark fs-4 text-center'><i class="fas fa-comment-dots"></i> Messenger Fake</h1>
                         <form name='user_form_name' id='user_form' class='p-3 modal-body d-flex flex-column align-items-center'>
-                        <img src='./assets/avatar.png' alt='avatar msn' type='image/png' id='avatar' class='align-self-center mb-4'>
-                                              
-                        <input name='user' id='user_message' type='text' class='form-control mb-2 align-self-center text-center' placeholder='Digite um Nick' required >
-                       
-                        <!--Colors for nick-->
-
-                        <select class="form-select mb-2 text-center" required id='color'>
-                            <option selected>Selecione uma cor</option>
-                            <option value="black">Preto</option>
-                            <option value="gray">Cinza</option>
-                            <option value="darkgray">Grafite</option>
-                            <option value="red">Vermelho</option>
-                            <option value='tomato'>Tomato</option>
-                            <option value="darkred">Vinho</option>
-                            <option value="purple">Roxo</option>
-                            <option value="pink">Rosa</option>
-                            <option value="darkmagenta">Rosa Escuro</option>
-                            <option value="magenta">magenta</option>
-                            <option value="violet">Violeta</option>
-                            <option value="lightblue">Azul Claro</option>
-                            <option value="blue">Azul</option>
-                            <option value="darkblue">Azul Marinho</option>
-                            <option value="darkgreen">Verde Escuro</option>
-                            <option value="green">Verde</option>
-                            <option value="lightgreen">Verde Claro</option>
-                            <option value="greenyellow">Verde Limão</option>
-                            <option value='brown'>Marrom</option>
-                            <option value='goldenrod'>Dourado</option>
-                            <option value='yellow'>Amarelo</option>
-                            <option value='Orange'>Laranja</option>
+                                <img src='./assets/avatar.png' alt='avatar msn' type='image/png' id='avatar' class='align-self-center mb-4'>
+                                                    
+                                <input name='user' id='user_message' type='text' class='form-control mb-2 align-self-center text-center' placeholder='Digite um Nick' required >
                             
-                         </select>
+                                <!--Colors for nick-->
+
+                                <select class="form-select mb-2 text-center" required id='color'>
+                                    <option selected>Selecione uma cor</option>
+                                    <option value="black">Preto</option>
+                                    <option value="gray">Cinza</option>
+                                    <option value="darkgray">Grafite</option>
+                                    <option value="red">Vermelho</option>
+                                    <option value='tomato'>Tomato</option>
+                                    <option value="darkred">Vinho</option>
+                                    <option value="purple">Roxo</option>
+                                    <option value="pink">Rosa</option>
+                                    <option value="darkmagenta">Rosa Escuro</option>
+                                    <option value="magenta">magenta</option>
+                                    <option value="violet">Violeta</option>
+                                    <option value="lightblue">Azul Claro</option>
+                                    <option value="blue">Azul</option>
+                                    <option value="darkblue">Azul Marinho</option>
+                                    <option value="darkgreen">Verde Escuro</option>
+                                    <option value="green">Verde</option>
+                                    <option value="lightgreen">Verde Claro</option>
+                                    <option value="greenyellow">Verde Limão</option>
+                                    <option value='brown'>Marrom</option>
+                                    <option value='goldenrod'>Dourado</option>
+                                    <option value='yellow'>Amarelo</option>
+                                    <option value='Orange'>Laranja</option>
+                                    
+                                </select>
 
 
-                         <!--Status-->
+                                <!--Status-->
 
-                         <select class="form-select mb-2 text-center" required id='status'>
-                            <option value='<i class="fas fa-user text-success"></i>' selected>Disponível</option>
-                            <option value='<i class="fas fa-minus-circle text-warning"></i>'>Ocupado</option>
-                            <option value='<i class="fas fa-user text-danger"></i>'>Ausente</option>
-                        </select>
+                                <select class="form-select mb-2 text-center" required id='status'>
+                                    <option value='<i class="fas fa-user text-success"></i>' selected>Disponível</option>
+                                    <option value='<i class="fas fa-minus-circle text-warning"></i>'>Ocupado</option>
+                                    <option value='<i class="fas fa-user text-danger"></i>'>Ausente</option>
+                                </select>
 
-                         <!-- Chat Room-->
-                         <select class="form-select mb-2 text-center" required id='chat_room'>
-                            <option selected value="Sala 01">Sala 01</option>
-                        </select>
+                                <!-- Chat Room-->
+                                <select class="form-select mb-2 text-center" required id='chat_room'>
+                                    <option selected value="1">Sala 01</option>
+                                    <option value='2'>Sala 02</option>
+                                </select>
 
 
-                        <button class='btn btn-dark w-100 align-self-center btn-lg mt-2' type='submit'>Entrar <i class="far fa-hand-point-right"></i></button>
+                                <button class='btn btn-dark w-100 align-self-center btn-lg mt-2' type='submit'>Entrar <i class="far fa-hand-point-right"></i></button>
                         </form>
                 
                 </div>
@@ -146,7 +147,11 @@
         
     </div>
 
-</div>   
+</div>  
+
+<footer class='mt-5 d-flex flex-column align-items-center justify-content-center'>
+        <p class='fw-bolder text-light fs-6 text-center'>Messenger Fake - Por Valber Júnior<i class="far fa-copyright"></i></p>
+</footer>
 
 <!--sound new message-->
 <audio  id='audio'>
@@ -157,7 +162,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
 <!-- SOCKET IO -->
-<script src='./socket.io/socket.io.js'></script>
+<script src='/socket.io/socket.io.js'></script>
 <!-- My Script -->
 <script src='./script/chat.js'></script>
 </body>

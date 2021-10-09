@@ -5,7 +5,7 @@ const socketIo = require('socket.io');
 const path = require('path');
 
 
-//Salas                      !-- QUANDO ESTOU ADICIONANDO DUAS ROTAS PARA AS SALAS, DÁ UM ERRO NO CONSOLE 
+//Salas                     
 app.use('/room1', express.static(path.join(__dirname, 'public')));
 app.use('/room2', express.static(path.join(__dirname, 'public')));
 
