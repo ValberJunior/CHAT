@@ -97,5 +97,18 @@ const room2 = io.of('/room2').on('connection', (socket)=>{
     
     });
 
+     //Quando um usuário entra, ele vai para a lista de usuários
+     socket.on('new_user_status',(data)=>{
+        users.room2.push(data);
+        room1.emit('update_users', users.room2)});
+ 
+    
+      //Quando um usuário sai
+         socket.on('user_logOff',(data)=>{
+         const index = users.room1.indexOf(data);
+         users.room2.splice(index,1)
+         room1.emit('update_users', users.room2);
+     })
+
 
 });
