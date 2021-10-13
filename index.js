@@ -5,17 +5,7 @@ const socketIo = require('socket.io');
 const path = require('path');
 
 
-//Salas  
-app.get('/', (req, res)=>{
-
-    try {
-    res.redirect('localhost:3000/room1');
-    }
-    catch(error){
-    res.send(error.message);
-    }
-
-})                   
+//Salas               
 app.use('/room1', express.static(path.join(__dirname, 'public')));
 app.use('/room2', express.static(path.join(__dirname, 'public')));
 
@@ -58,12 +48,14 @@ const room1 = io.of('/room1').on('connection', (socket)=>{
 
     //Quando um usuário entra, ele vai para a lista de usuários
     socket.on('new_user_status',(data)=>{
+        console.log('quando um usuário entra '+data);
         users.room1.push(data);
         room1.emit('update_users', users.room1)});
  
     
       //Quando um usuário sai
          socket.on('user_logOff',(data)=>{
+         console.log('quando um usuário sai '+data)
          const index = users.room1.indexOf(data);
          users.room1.splice(index,1)
          room1.emit('update_users', users.room1);
@@ -98,17 +90,20 @@ const room2 = io.of('/room2').on('connection', (socket)=>{
     });
 
      //Quando um usuário entra, ele vai para a lista de usuários
-     socket.on('new_user_status',(data)=>{
+    socket.on('new_user_status',(data)=>{
+        console.log('quando um usuário entra '+data);
         users.room2.push(data);
         room1.emit('update_users', users.room2)});
  
     
       //Quando um usuário sai
          socket.on('user_logOff',(data)=>{
-         const index = users.room1.indexOf(data);
+         console.log('quando um usuário sai '+data)
+         const index = users.room2.indexOf(data);
          users.room2.splice(index,1)
          room1.emit('update_users', users.room2);
      })
+
 
 
 });

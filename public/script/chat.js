@@ -13,7 +13,7 @@ updateMessagesOnScreen(messages);
 
 //Recebendo o usuário do Backend
 socket.on('update_users', (users)=>{
-   
+    console.log(users)
     updateUsersOnScreen(users);
     
     })
