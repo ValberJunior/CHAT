@@ -19,28 +19,6 @@ app.get('/', (req, res)=>{
 app.use('/room1', express.static(path.join(__dirname, 'public')));
 app.use('/room2', express.static(path.join(__dirname, 'public')));
 
-// app.get('/room1', (req,res)=>{
-
-//     try {
-//         res.redirect('localhost:3000/room1');
-//         }
-//         catch(error){
-//         res.send(error.message);
-//         }
-
-// });
-
-// app.get('/room2', (req,res)=>{
-
-//     try {
-//         res.redirect('localhost:3000/room2');
-//         }
-//         catch(error){
-//         res.send(error.message);
-//         }
-
-// })
-
 const server = app.listen(PORT,()=>{
     console.log(`Server Running on Port ${PORT}`)
 })
@@ -49,10 +27,10 @@ const server = app.listen(PORT,()=>{
 //array de Mensagem
 const messages = {room1:[], room2:[]};
 
-//array de users
+//array de usuários
 const users = {room1:[], room2:[]};
 
-//sound
+//som
 let sound= null;
 
 const io = socketIo(server);
