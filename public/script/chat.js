@@ -1,5 +1,5 @@
 const room = window.location.pathname.replace(/\//g,''); //Substituir as / por vazio;
-console.log(room);
+// console.log(room);
 const socket = io(`http://localhost:3000/${room}`);  // Conectar na sala
 
 let user = null;
@@ -55,6 +55,7 @@ function updateUsersOnScreen(users){
 
         userBar.innerHTML = list_users;
 }
+
 
 document.addEventListener('DOMContentLoaded',()=>{
 
@@ -142,4 +143,22 @@ socket.on('sound',(sound)=>{
     if (sound){
     audio.play();
     }
+
 })
+
+
+//Deslogar usuário
+
+        const exit = document.querySelector('#exit');
+            
+        exit.addEventListener('click',()=>{
+            const confirmation = window.confirm("Deseja Sair?");
+
+            if (confirmation){
+                
+                socket.emit('user_logOff', user);
+                 
+                setTimeout(()=>{window.location.reload();},500)
+                
+            }
+        })

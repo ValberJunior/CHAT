@@ -5,9 +5,41 @@ const socketIo = require('socket.io');
 const path = require('path');
 
 
-//Salas                     
+//Salas  
+app.get('/', (req, res)=>{
+
+    try {
+    res.redirect('localhost:3000/room1');
+    }
+    catch(error){
+    res.send(error.message);
+    }
+
+})                   
 app.use('/room1', express.static(path.join(__dirname, 'public')));
 app.use('/room2', express.static(path.join(__dirname, 'public')));
+
+// app.get('/room1', (req,res)=>{
+
+//     try {
+//         res.redirect('localhost:3000/room1');
+//         }
+//         catch(error){
+//         res.send(error.message);
+//         }
+
+// });
+
+// app.get('/room2', (req,res)=>{
+
+//     try {
+//         res.redirect('localhost:3000/room2');
+//         }
+//         catch(error){
+//         res.send(error.message);
+//         }
+
+// })
 
 const server = app.listen(PORT,()=>{
     console.log(`Server Running on Port ${PORT}`)
@@ -42,7 +74,7 @@ const room1 = io.of('/room1').on('connection', (socket)=>{
         //Mandar a mensagem para todo mundo, inclusive para quem enviou
         room1.emit('update_messages', messages.room1);
         sound = true;
-        room1.broadcast.emit('sound',sound)
+        socket.broadcast.emit('sound',sound)
     
     });
 
@@ -51,9 +83,18 @@ const room1 = io.of('/room1').on('connection', (socket)=>{
         users.room1.push(data);
         room1.emit('update_users', users.room1)});
  
+    
+      //Quando um usuário sai
+         socket.on('user_logOff',(data)=>{
+         const index = users.room1.indexOf(data);
+         users.room1.splice(index,1)
+         room1.emit('update_users', users.room1);
+     })
+
 
 
 })
+
 
 
 
@@ -74,15 +115,9 @@ const room2 = io.of('/room2').on('connection', (socket)=>{
         //Mandar a mensagem para todo mundo, inclusive para quem enviou
         room2.emit('update_messages', messages.room2);
         sound = true;
-        room2.broadcast.emit('sound',sound)
+        socket.broadcast.emit('sound',sound)
     
     });
-
-    //Quando um usuário entra, ele vai para a lista de usuários
-    socket.on('new_user_status',(data)=>{
-        users.room2.push(data);
-        room2.emit('update_users', users.room2)});
- 
 
 
 });
