@@ -5,9 +5,16 @@ Chat simples utilizando SocketIO
 # Um projeto de Chat Utilizando SOCKET.IO
 
 ## Prints
-![print1](https://user-images.githubusercontent.com/84424883/137188305-d35f561f-6dd2-4063-a4e4-d31d12fc6253.png)
+![print1](https://user-images.githubusercontent.com/84424883/137188305-d35f561f-6dd2-4063-a4e4-d31d12fc6253.png)<br><br>
 
-![print2](https://user-images.githubusercontent.com/84424883/137188333-cde011eb-437b-436d-8feb-2b55bfd45fed.png)
+
+## Video
+
+
+
+https://user-images.githubusercontent.com/84424883/137198372-ed269fbd-8ff2-46bb-a205-c528738baffb.mp4
+
+
 
 
 ## Tecnologias utilizadas:
