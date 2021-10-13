@@ -68,12 +68,12 @@ document.addEventListener('DOMContentLoaded',()=>{
             
             e.preventDefault();
 
-            let color = document.querySelector('#color').value;     //Choose Color
-            let status = document.querySelector('#status').value;    //Choose status
-            let chat_room = document.querySelector('#chat_room').value;    //Choose Room   
+            let color = document.querySelector('#color').value;     //Escolher Cor
+            let status = document.querySelector('#status').value;    //Status
+            let chat_room = document.querySelector('#chat_room').value;    //Sala 
             let roomName = document.querySelector('#roomName');
 
-            roomName.innerHTML = `<i class="fas fa-comments text-dark me-2"></i> Sala ${chat_room}`;   // Room Name        
+            roomName.innerHTML = `<i class="fas fa-comments text-dark me-2"></i> Sala ${chat_room}`;   // Nome da Sala        
 
                 
             let text = document.forms['user_form_name']['user'].value;
@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 })
 
 
-//sound new message
+//notificação 
 const audio = document.querySelector('#audio');
 
 socket.on('hello',(data)=>{

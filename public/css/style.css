@@ -13,7 +13,6 @@ body{
     height: 420px;
     overflow: auto;
     border: 2px solid #ced1d39a;
-     /* box-shadow: 0 0 1em #ced1d39a; */
 }
 
 
@@ -22,7 +21,6 @@ body{
     overflow: hidden;
     border: 2px solid #ced1d39a;
     text-align: center;
-    /* box-shadow: 0 0 1em #ced1d39a; */
 }
 
 #message{
